@@ -1,6 +1,7 @@
 
 
 
+import Abouts from "./about/Abouts"
 import Signup from "./components/Signup"
 import Contacts from "./contact/Contacts"
 import Courses from "./courses/Courses"
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/course" element={<Courses/>}/>
         <Route path="/contact" element={<Contacts/>}/>
+        <Route path="/about" element={<Abouts/>}/>
    
   
         <Route path="/signup" element={<Signup/>}/>
