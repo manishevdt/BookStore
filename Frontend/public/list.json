@@ -1,0 +1,74 @@
+[
+    {
+        "id":1,
+        "name":"Story Book",
+        "title":"This IS story book series which is free available for all users",
+        "price":0,
+        "category":"free",
+        "image":"https://estore.allen.ac.in/cdn/shop/files/extra-edge-neet-ug-hindi-allen-estore-combo.png?v=1743764893"
+    },
+    {
+        "id":2,
+        "name":"Comedy Book",
+        "title":"This IS Comedy book series which is free available for all users",
+        "price":0,
+        "category":"Entertenment",
+        "image":"https://m.media-amazon.com/images/I/51kh4WTeKcL._SR290,290_.jpg"
+    },
+    {
+        "id":3,
+        "name":"horror Book",
+        "title":"This IS Horror book series which is free available for all users",
+        "price":0,
+        "category":"Comdey+Horror",
+        "image":"https://celadonbooks.com/wp-content/uploads/2022/12/11-must-read.jpg"
+    },
+    {
+        "id":4,
+        "name":"History Book",
+        "title":"This IS History book series which is free available for all users",
+        "price":0,
+        "category":"free",
+        "image":"https://images.immediate.co.uk/production/volatile/sites/7/2024/12/Books-315-Xmas24-THE-TRUTH-ABOUT-EMPIRE-85c2705.jpg?quality=90&fit=620,413"
+    },
+    {
+        "id":5,
+        "name":"Extra Book",
+        "title":"This IS Extra book series which is free available for all users",
+        "price":0,
+        "category":"free",
+        "image":"https://estore.allen.ac.in/cdn/shop/files/extra-edge-neet-ug-hindi-allen-estore-combo.png?v=1743764893"
+    },
+    {
+        "id":6,
+        "name":"Sports Book",
+        "title":"This IS story book series which is free available for all users",
+        "price":0,
+        "category":"free",
+        "image":"https://m.media-amazon.com/images/I/51KSzOmRKhL._AC._SR240,240.jpg"
+    },
+    {
+        "id":7,
+        "name":"Sports Book",
+        "title":"This IS story book series which is free available for all users",
+        "price":0,
+        "category":"free",
+        "image":"https://m.media-amazon.com/images/I/51KSzOmRKhL._AC._SR240,240.jpg"
+    },
+    {
+        "id":8,
+        "name":"Sports Book",
+        "title":"This IS story book series which is free available for all users",
+        "price":0,
+        "category":"free",
+        "image":"https://m.media-amazon.com/images/I/51KSzOmRKhL._AC._SR240,240.jpg"
+    },
+    {
+        "id":9,
+        "name":"Food Book",
+        "title":"This IS story book series which is free available for all users",
+        "price":200,
+        "category":"food",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWKtAn7GbzaqLLHPDeB0xb9ZNKACT0EpWI_Q&s"
+    }
+]
