@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import axious from "axios"
 import { useForm} from "react-hook-form"
+import toast from 'react-hot-toast'
 const Login = () => {
 
   const {
@@ -10,13 +12,42 @@ const Login = () => {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async (data) => {
+    const userInfo={
+
+ email:data.email,
+ password:data.password
+    }
+  await axious.post("http://localhost:4001/users/login",userInfo) //userinfo isliye kyo ki hame api may store krna hai
+   .then((res)=>{
+    console.log(res.data)
+    if(res.data){ // if resdata is aviable then
+   
+      toast.success("Successfully created Login");
+            //local stoage may res.data ko store kr rhe hai taki hum usay courses component may ue kr sakhte hai 
+            localStorage.setItem("Users",JSON.stringify(res.data.user))
+      setTimeout(()=>{
+        document.getElementById("my_model_3").close();
+        window.location.reload()
+      
+      },3000)
+    
+    }
+
+   }).catch((err)=>{
+       if(err.response){
+        console.log(err)
+       toast.error("Error" + err.response.data.message);
+       setTimeout(()=>{},3000)
+       }
+   })
+  };
   return (
     <div className=' dark:bg-slate-900 dark:text-white'>
       <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <form onSubmit={handleSubmit(onSubmit)}>
-    <Link  to ="/" className='btn-btn-sm btn-circle btn-ghost absolute right-2 top-2'> x
+    <Link  to ="/" className='btn-btn-sm btn-circle btn-ghost absolute right-2 top-2' onClick={()=>document.getElementById("my_model_3").close()}> x
     </Link>
     <h3 className="font-bold text-lg">Login</h3>
   <div className='mt-4 space-y-2'>

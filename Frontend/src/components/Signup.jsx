@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Login from './Login'
+import axious from "axios"
 import { useForm} from "react-hook-form"
+import toast from 'react-hot-toast'
 const Signup = () => {
     const {
       register,
@@ -9,7 +11,33 @@ const Signup = () => {
      
       formState: { errors },
     } = useForm()
-    const onSubmit = (data) => console.log(data)
+
+    const navigate= useNavigate()
+    const onSubmit = async (data) => {
+      const userInfo={
+   fullname:data.fullname,
+   email:data.email,
+   password:data.password
+      }
+    await axious.post("http://localhost:4001/users/signup",userInfo) //userinfo isliye kyo ki hame api may store krna hai
+     .then((res)=>{
+      console.log(res.data)
+      if(res.data){ // if resdata is aviable then
+ 
+        toast.success("Sign up Success")
+        navigate("/")
+          
+      }
+      //local stoage may res.data ko store kr rhe hai taki hum usay courses component may ue kr sakhte hai 
+      localStorage.setItem("Users",JSON.stringify(res.data.user))
+     }).catch((err)=>{
+         if(err.response){
+          console.log(err)
+        
+          toast.error("Error" + err.response.data.message)
+         }
+     })
+    };
   return (
     <>
     <div className='flex  item-center justify-center  dark:bg-slate-900 dark:text-white '>
@@ -22,10 +50,10 @@ const Signup = () => {
     
     <span>Name</span>
     <br/>
-    <input tpye="Name"
-    placeholder='Enter your Full Name'  {...register("Full Name", { required: true })} className='w-80 px-3 py-1 border rounded-md outline-none'/>
+    <input type="text"
+    placeholder='Enter your Full Name'  {...register("fullname", { required: true })} className='w-80 px-3 py-1 border rounded-md outline-none'/>
     <br/>
-      {errors.FullName && <span className='text-sm  text-red-500'>This field is required</span>}
+      {errors.fullName && <span className='text-sm  text-red-500'>This field is required</span>}
   </div>
   <div className='mt-4 space-y-2'>
     <span>Email</span>
