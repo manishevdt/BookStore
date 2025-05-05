@@ -26,3 +26,24 @@ export const signup= async (req,res)=>{
              res.status(500).json({message:"Internal Server Error"})
     }
 }
+
+export const login = async(req,res)=>{
+    try {
+        const {email,password} = req.body; //we are gettimg emailand password form body
+        const  user = await User.findOne({email}) // we are finding email in db
+        // const isMatch = password.compare(password,user.password) //Comparing password 
+        if(!user ){                           // if user details are not matched
+              return res.status(400).json({message:"Invalid credinals"})
+        }
+        else{
+            res.status(200).json({message:"Login successfull",user:{ // id ,fullname,email values are store in db in user 
+                _id:user._id,
+                fullname:user.fullname,
+                email:user.email
+            }})
+        }
+    } catch (error) {
+        console.log("error"+error.message)
+        res.status(500).json({message:"Internal server error"})
+    }
+}
