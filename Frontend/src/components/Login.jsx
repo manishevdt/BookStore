@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import axious from "axios"
+import { api } from "../api/axious";
+
 import { useForm} from "react-hook-form"
 import toast from 'react-hot-toast'
 const Login = () => {
@@ -18,7 +19,8 @@ const Login = () => {
  email:data.email,
  password:data.password
     }
-  await axious.post("http://localhost:4001/users/login",userInfo) //userinfo isliye kyo ki hame api may store krna hai
+await api.post("/users/login", userInfo)
+ //userinfo isliye kyo ki hame api may store krna hai
    .then((res)=>{
     console.log(res.data)
     if(res.data){ // if resdata is aviable then
