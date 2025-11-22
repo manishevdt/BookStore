@@ -10,19 +10,19 @@ import Cards from './Cards';
 const Freebook = () => {
   const [book,setBook] = useState([])
   
-useEffect(() => {
-  const getBook = async () => {
-    try {
-       const res = await api.get("/book");  
-      setBook(res.data.filter((data) => data.category === "free"));
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await api.get("/book");  
+        setBook(res.data.filter((data) => data.category === "free"));
+        console.log(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  getBook();
-}, []);
+    getBook();   // <-- important
+  }, []); ;
 //  free data ko filter kr rha hai 
 
     var settings = {
